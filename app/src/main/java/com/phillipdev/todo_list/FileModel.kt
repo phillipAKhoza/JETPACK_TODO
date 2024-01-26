@@ -6,7 +6,7 @@ import java.io.FileOutputStream
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 
-class FileController {
+class FileModel {
 
     val FILENAME = "todolist.dat"
 
@@ -18,10 +18,10 @@ class FileController {
         oas.close()
     }
     fun readData(context: Context): List<String>{
-        var todoList: List<String>
+        var todoList: MutableList<String>
         var fis: FileInputStream = context.openFileInput(FILENAME)
         var ois = ObjectInputStream(fis)
-        todoList= ois.readObject() as List<String>
+        todoList= ois.readObject() as MutableList<String>
 
         return todoList
     }
